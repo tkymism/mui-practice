@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx'
 import { makeStyles } from '@material-ui/core/styles'
+import { useTranslation } from 'react-i18next';
 
 import Drawer from '@material-ui/core/Drawer'
 import IconButton from '@material-ui/core/IconButton'
@@ -9,6 +10,7 @@ import Divider from '@material-ui/core/Divider'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import { drawerWidth } from './DashboardFrame'
 import ListItems from '../../components/ListItems'
+
 
 const useStyles = makeStyles(theme => ({
     toolbarIcon: {
@@ -41,7 +43,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const DashboardDrawer = props => {
-    const { open, handleDrawerClose, mainListItems, secondaryListTitle, secondaryListItems } = props
+    const { open, handleDrawerClose, mainListItems, secondaryListItems } = props
+    const { t } = useTranslation()
     const classes = useStyles()
     return (
         <Drawer
@@ -59,7 +62,7 @@ const DashboardDrawer = props => {
             <Divider />
             <ListItems listItems={mainListItems} />
             <Divider />
-            <ListItems subheader={secondaryListTitle} listItems={secondaryListItems} />
+            <ListItems subheader={t('saved report')} listItems={secondaryListItems} />
         </Drawer>
     )
 }

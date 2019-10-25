@@ -1,6 +1,7 @@
 import React from 'react'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from 'react-i18next';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -41,7 +42,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const DashboardAppBar = props => {
-    const { titleName, handleDrawerOpen, open } = props
+    const { handleDrawerOpen, open } = props
+    const { t } = useTranslation()
     const classes = useStyles()
     return (
         <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
@@ -56,7 +58,7 @@ const DashboardAppBar = props => {
             <MenuIcon />
             </IconButton>
             <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            {titleName}
+            {t('dashboard')}
             </Typography>
             <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">

@@ -11,20 +11,20 @@ const useStyles = makeStyles({
 })
 
 const DashboardTemplate = props => {
-    const { titleName, mainList, secondaryList, secondaryListTitle, charts, rows} = props
+    const { mainList, secondaryList, charts, rows, ...rests } = props
     const classes = useStyles()
     return (
         <div className={classes.root}>
             <CssBaseline />
             <DashboardFrame 
-                titleName={titleName}
                 mainListItems={mainList}
-                secondaryListTitle={secondaryListTitle}
                 secondaryListItems={secondaryList}
+                {...rests}
             />
             <DashboardContents
                 charts={charts}
                 rows={rows}
+                {...rests}
             />
         </div>
     )

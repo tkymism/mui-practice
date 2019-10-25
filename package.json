@@ -5,13 +5,17 @@
   "dependencies": {
     "@material-ui/core": "^4.5.1",
     "@material-ui/icons": "^4.5.1",
+    "i18next": "^18.0.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-i18next": "^11.0.0",
+    "react-intl": "^3.4.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "recharts": "^1.8.3"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "BROWSER=none react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

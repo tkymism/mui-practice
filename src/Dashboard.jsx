@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import DashboardTemplate from './containers/dashboard/DashboardTemplate'
 
@@ -17,7 +17,7 @@ const charts = [
 
 // Generate Order Data
 const row = (id, date, name, shipTo, paymentMethod, amount) => {
-    return { id, date, name, shipTo, paymentMethod, amount };
+    return { id, date, name, shipTo, paymentMethod, amount }
 }
 
 const rows = [
@@ -42,19 +42,14 @@ const secondaryList = [
     { itemText: 'Year-end sale', itemIcon: 'assignment' }, 
 ]
 
-const secondaryListTitle = 'Saved reports'
-
-const applicationName='Dashboard'
-
-const App = () => (
+const Dashboard = ({...props}) => (
     <DashboardTemplate 
-        titleName={applicationName}
         mainList={mainList}
         secondaryList={secondaryList}
-        secondaryListTitle={secondaryListTitle}
         charts={charts}
         rows={rows}
+        {...props}
         />
 )
 
-export default App
+export default (Dashboard)
