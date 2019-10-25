@@ -1,15 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { mainListItems, secondaryListItems } from './listItems';
-import DashboardFrame from '../containers/dashboard/DashboardFrame'
-import DashboardContents from '../containers/dashboard/DashboardContents'
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
-}));
+import DashboardTemplate from './containers/dashboard/DashboardTemplate'
 
 const chart = (time, amount) => { return { time, amount }} 
 const charts = [
@@ -22,7 +13,7 @@ const charts = [
     chart('18:00', 2400),
     chart('21:00', 2400),
     chart('24:00', undefined),
-];
+]
 
 // Generate Order Data
 const row = (id, date, name, shipTo, paymentMethod, amount) => {
@@ -37,22 +28,33 @@ const rows = [
     row(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
 ]
 
-const Dashboard = () => {
-    const classes = useStyles()
-    return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <DashboardFrame 
-                titleName='Dashboard'
-                mainListItems={mainListItems}
-                secondaryListItems={secondaryListItems}        
-            />
-            <DashboardContents
-                charts={charts}
-                rows={rows}
-            />
-        </div>
-    )
-}
+const mainList = [
+    { itemText: 'Dashboard',    itemIcon: 'dashboard' }, 
+    { itemText: 'Orders',       itemIcon: 'shoppingCart' }, 
+    { itemText: 'Customers',    itemIcon: 'people' }, 
+    { itemText: 'Reports',      itemIcon: 'barChart' }, 
+    { itemText: 'Integrations', itemIcon: 'layers' }, 
+]
 
-export default Dashboard
+const secondaryList = [
+    { itemText: 'Current month', itemIcon: 'assignment' }, 
+    { itemText: 'Last quarter',  itemIcon: 'assignment' }, 
+    { itemText: 'Year-end sale', itemIcon: 'assignment' }, 
+]
+
+const secondaryListTitle = 'Saved reports'
+
+const applicationName='Dashboard'
+
+const App = () => (
+    <DashboardTemplate 
+        titleName={applicationName}
+        mainList={mainList}
+        secondaryList={secondaryList}
+        secondaryListTitle={secondaryListTitle}
+        charts={charts}
+        rows={rows}
+        />
+)
+
+export default App

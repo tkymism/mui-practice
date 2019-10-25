@@ -1,5 +1,3 @@
-/* eslint-disable no-script-url */
-
 import React from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
@@ -45,7 +43,7 @@ const Orders = props => {
             </TableBody>
         </Table>
         <div className={classes.seeMore}>
-            <Link color="primary" href="javascript:;">
+            <Link color="primary" href="/moreorder">
             See more orders
             </Link>
         </div>

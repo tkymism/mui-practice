@@ -12,13 +12,6 @@ const useStyles = makeStyles(() => ({
         left: 24,
       },
     },
-    // label: {
-    //     angle: 270,
-    //     position: "left",
-    //     style: { 
-    //         textAnchor: 'middle',
-    //     },
-    // },
 }))
 
 const Chart = props => {
